@@ -1,4 +1,4 @@
-# Decodelabs_Static-Webpage-designing
+# Task1_Static-Webpage-designing
 
 # 🌏 Explore India — Travel Website
 
@@ -7,9 +7,9 @@ A responsive static travel website created using HTML and CSS showcasing the bea
 ---
 # Live Demo
 ## Netlify: 
-https://decodelabs-static-webpage-designing.netlify.app/
+https://task1-static-webpage-designing.netlify.app/
 ## Vercel:
-https://decodelabs-static-webpage-designing.vercel.app/
+https://task1static-webpage-designing.vercel.app/
 
 ---
 # 📌 Project Overview
