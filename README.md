@@ -14,6 +14,6 @@ All projects are built using **HTML5 and CSS3** focusing on strong frontend fund
 🏞 It presents popular tourist destinations in India with a simple, structured, and visually clean design. 
 
 # For more details you can see: 
-Decodelabs_Static-Webpage-designing folder 📂 
+Task1_Static-Webpage-designing folder 📂 
 
 ---
