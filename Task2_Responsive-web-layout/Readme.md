@@ -9,7 +9,7 @@ A modern and responsive restaurant website created using HTML and CSS showcasing
 # Live Demo
 
 ## Vercel:
-https://your-vercel-link.vercel.app/
+https://task2responsive-web-layout.vercel.app/
 
 ---
 
