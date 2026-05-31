@@ -25,7 +25,7 @@ Task1_Static-Webpage-designing folder 📂
 
 🌏 It showcases authentic Indian regional thalis through a modern, mobile-friendly, and visually appealing user interface while ensuring a seamless experience across desktop, tablet, and mobile devices.
 
-For more details you can see:
+# For more details you can see:
 Task2_Responsive-Web-Layout folder 📂
 
 ---
