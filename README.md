@@ -17,3 +17,15 @@ All projects are built using **HTML5 and CSS3** focusing on strong frontend fund
 Task1_Static-Webpage-designing folder 📂 
 
 ---
+# 📌 Task 2: Responsive Web Layout Using HTML & CSS
+
+📄 As per Task 2 requirements, a responsive webpage had to be developed using HTML and CSS, focusing on CSS Media Queries, responsive navigation, proper spacing, and layouts that adapt across different screen sizes. 
+
+🍽️ Based on these instructions, I developed the Thali House responsive restaurant website using HTML and CSS.
+
+🌏 It showcases authentic Indian regional thalis through a modern, mobile-friendly, and visually appealing user interface while ensuring a seamless experience across desktop, tablet, and mobile devices.
+
+For more details you can see:
+Task2_Responsive-Web-Layout folder 📂
+
+---
