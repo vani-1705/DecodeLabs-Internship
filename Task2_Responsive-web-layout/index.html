@@ -1,0 +1,588 @@
+<!-- Responsive Web Layout Using HTML & CSS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thali House – Authentic Indian Thalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- css-only toggles -->
+<input type="checkbox" id="nav-open" class="nav-toggle-check" />
+<input type="checkbox" id="cart-open" class="cart-toggle-check" />
+<input type="checkbox" id="t1" class="thali-toggle" />
+<input type="checkbox" id="t2" class="thali-toggle" />
+<input type="checkbox" id="t3" class="thali-toggle" />
+<input type="checkbox" id="t4" class="thali-toggle" />
+<input type="checkbox" id="t5" class="thali-toggle" />
+<input type="checkbox" id="t6" class="thali-toggle" />
+<input type="checkbox" id="t7" class="thali-toggle" />
+<input type="checkbox" id="t8" class="thali-toggle" />
+
+<!-- 1.cart overlay -->
+<label for="cart-open" class="cart-overlay"></label>
+
+<!-- 1.cart panel -->
+<div class="cart-panel">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <label for="cart-open" class="cart-close-label">✕</label>
+  </div>
+  <div class="cart-items-list">
+    <p class="cart-empty">Your cart is empty.<br>Add a thali to get started! 🍽️</p>
+
+    <div class="cart-item ci-t1">
+      <div class="ci-left">
+        <span class="ci-name">🍚 Bengali Thali</span>
+        <span class="ci-desc">Dal, rice, fish curry, mishti doi</span>
+      </div>
+      <span class="ci-price">₹399</span>
+    </div>
+    <div class="cart-item ci-t2">
+      <div class="ci-left">
+        <span class="ci-name">🥘 Gujarati Thali</span>
+        <span class="ci-desc">Dal, kadhi, shaak, rotli</span>
+      </div>
+      <span class="ci-price">₹329</span>
+    </div>
+    <div class="cart-item ci-t3">
+      <div class="ci-left">
+        <span class="ci-name">🍖 Kashmiri Thali</span>
+        <span class="ci-desc">Rogan josh, yakhni, saffron rice</span>
+      </div>
+      <span class="ci-price">₹369</span>
+    </div>
+    <div class="cart-item ci-t4">
+      <div class="ci-left">
+        <span class="ci-name">🫓 Maharashtrian Thali</span>
+        <span class="ci-desc">Puran poli, varan bhat, solkadhi</span>
+      </div>
+      <span class="ci-price">₹329</span>
+    </div>
+    <div class="cart-item ci-t5">
+      <div class="ci-left">
+        <span class="ci-name">🧈 Punjabi Thali</span>
+        <span class="ci-desc">Dal makhani, butter chicken, lassi</span>
+      </div>
+      <span class="ci-price">₹359</span>
+    </div>
+    <div class="cart-item ci-t6">
+      <div class="ci-left">
+        <span class="ci-name">🌾 Rajasthani Thali</span>
+        <span class="ci-desc">Dal baati churma, ker sangri</span>
+      </div>
+      <span class="ci-price">₹329</span>
+    </div>
+    <div class="cart-item ci-t7">
+      <div class="ci-left">
+        <span class="ci-name">🍌 South Indian Thali</span>
+        <span class="ci-desc">Sambar, rasam, avial, payasam</span>
+      </div>
+      <span class="ci-price">₹299</span>
+    </div>
+    <div class="cart-item ci-t8">
+      <div class="ci-left">
+        <span class="ci-name">🥣 Tiffins Thali</span>
+        <span class="ci-desc">Idli, upma, poha, chutney</span>
+      </div>
+      <span class="ci-price">₹249</span>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <a href="#contact" class="btn-checkout">
+      <label for="cart-open" class="checkout-inner">Proceed to Order 🍽️</label>
+    </a>
+  </div>
+</div>
+
+
+<!-- 2.HEADER -->
+<header id="home">
+  <label for="nav-open" class="mobile-nav-overlay"></label>
+
+  <a href="#home" class="nav-logo">
+    <div class="logo-icon">🍽️</div>
+    <div class="logo-text">
+      Thali House
+      <span class="logo-sub">Authentic Indian Thalis</span>
+    </div>
+  </a>
+
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn-book">Book a Table</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-right">
+    <label for="cart-open" class="cart-trigger-label" aria-label="View Cart">
+      🛒
+      <span class="cart-badge-wrap">1</span>
+    </label>
+    <div class="menu-trigger-wrap">
+      <label for="nav-open" class="nav-toggle" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <span class="nav-label">Menu</span>
+    </div>
+  </div>
+
+  <nav class="mobile-nav">
+    <label for="nav-open" class="nav-close-label">✕</label>
+    <ul>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#menu">🍽️ Menu</a></li>
+      <li><a href="#about">📖 About</a></li>
+      <li><a href="#social">📱 Social</a></li>
+      <li><a href="#contact">📞 Contact</a></li>
+      <li><a href="#contact" class="btn-book">🪑 Book a Table</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 3. HERO -->
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <span class="hero-label">✦ Since 2005 · Award Winning Family Restaurant</span>
+    <h1>Delicious Food<br><em>Made With Love</em></h1>
+    <p class="hero-desc">We serve the best thalis in town with fresh ingredients, expert chefs and unforgettable taste crafted for every occasion.</p>
+    <div class="hero-cta">
+      <a href="#menu" class="btn-primary">Order Now</a>
+      <a href="#menu" class="btn-outline">Explore Menu</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Dishes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">15K+</span>
+        <span class="stat-label">Customers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Chefs</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="hero-image-wrap">
+      <img src="images/Biryani.png" alt="Hyderabad Chicken Biryani" loading="eager" />
+    </div>
+    <div class="hero-badge">
+      <div class="open-dot"></div>
+      <div class="hero-badge-text">
+        <strong>Open Now</strong>
+        <span> 
+        <b>Mon-Fri:</b> 10AM - 10PM <br>
+        <b> Sat-Sun: </b> 9AM - 11PM 
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 4.MENU -->
+<section class="dishes" id="menu">
+  <div class="section-inner">
+    <span class="section-tag">✦ Our Specialties ✦</span>
+    <h2 class="section-title">Popular Dishes</h2>
+    <div class="divider-line"></div>
+    <br>
+
+    <div class="dishes-grid">
+
+      <!-- Bengali Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-bengali">🏆 Best Seller</span>
+        <div class="dish-img">
+          <img src="images/Bengali_Thali.png" alt="Bengali Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.8</b> <span class="review-count"> <b>(320 reviews)</b></span></div>
+          <h3>Bengali Thali</h3>
+          <p>Dal, steamed rice, fish curry, aloo posto, mishti doi &amp; papad — a sweet-spicy taste of Bengal.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹399</span>
+            <label for="t1" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gujarati Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-gujarati">🌿 Signature Dish</span>
+        <div class="dish-img">
+          <img src="images/Gujarati_Thali.png" alt="Gujarati Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.6</b> <span class="review-count"><b>(210 reviews)</b></span></div>
+          <h3>Gujarati Thali</h3>
+          <p>Dal, kadhi, shaak, rotli, rice &amp; jaggery — sweet, tangy and savory flavors in one wholesome meal.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹329</span>
+            <label for="t2" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kashmiri Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-kashmiri">👑 Royal Treat</span>
+        <div class="dish-img">
+          <img src="images/Kashmiri_Thali.png" alt="Kashmiri Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.7</b> <span class="review-count"><b>(185 reviews)</b></span></div>
+          <h3>Kashmiri Thali</h3>
+          <p>Rogan josh, yakhni, naan &amp; saffron rice — a royal aromatic feast from the valleys of Kashmir.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹369</span>
+            <label for="t3" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Maharashtrian Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-maharashtrian">🌊 Local Favorite</span>
+        <div class="dish-img">
+          <img src="images/Maharashtrian_Thali.png" alt="Maharashtrian Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.5</b> <span class="review-count"><b>(270 reviews)</b></span></div>
+          <h3>Maharashtrian Thali</h3>
+          <p>Puran poli, varan bhat, bhaji, solkadhi &amp; papad — authentic taste of Maharashtra's coastal cuisine.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹329</span>
+            <label for="t4" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Punjabi Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-punjabi">🔥 Hot Pick</span>
+        <div class="dish-img">
+          <img src="images/Punjabi_Thali.png" alt="Punjabi Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.9</b> <span class="review-count"><b>(410 reviews)</b></span></div>
+          <h3>Punjabi Thali</h3>
+          <p>Dal makhani, butter chicken, tandoori roti, lassi &amp; kheer — bold buttery flavors from Punjab.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹359</span>
+            <label for="t5" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Rajasthani Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-rajasthani">🏜️ Heritage Taste</span>
+        <div class="dish-img">
+          <img src="images/Rajasthani_Thali.png" alt="Rajasthani Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.6</b> <span class="review-count"><b>(195 reviews)</b></span></div>
+          <h3>Rajasthani Thali</h3>
+          <p>Dal baati churma, gatte ki sabzi, ker sangri &amp; bajra roti — royal desert flavors of Rajasthan.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹329</span>
+            <label for="t6" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- South Indian Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-southindian">🍃 Authentic Flavor</span>
+        <div class="dish-img">
+          <img src="images/SouthIndian_Thali.png" alt="South Indian Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 5</b> <span class="review-count"><b>(350 reviews)</b></span></div>
+          <h3>South Indian Thali</h3>
+          <p>Sambar, rasam, rice, avial, papad &amp; payasam — wholesome banana-leaf feast from Southern India.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹299</span>
+            <label for="t7" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tiffins Thali -->
+      <article class="dish-card">
+        <span class="dish-badge badge-tiffins">🥗 Light &amp; Healthy</span>
+        <div class="dish-img">
+          <img src="images/Tiffins_Thali.png" alt="Tiffins Thali" loading="lazy" />
+        </div>
+        <div class="dish-info">
+          <div class="dish-rating"><b>⭐ 4.4</b> <span class="review-count"><b>(140 reviews)</b></span></div>
+          <h3>Tiffins Thali</h3>
+          <p>Idli, upma, poha &amp; chutney — light, healthy and satisfying, perfect for a wholesome morning meal.</p>
+          <div class="dish-footer">
+            <span class="dish-price">₹249</span>
+            <label for="t8" class="add-btn-label">
+              <span class="txt-add">+ Add</span>
+              <span class="txt-added">✓ Added</span>
+            </label>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 5.ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <span class="section-tag gold">— Our Story —</span>
+    <h2 class="about-heading">Crafted with Love,<br>Rooted in Tradition</h2>
+    <div class="divider-line"></div>
+
+    <div class="about-grid">
+      <div class="about-emoji-col">
+        <div class="about-plate">🍽️</div>
+        <div class="about-deco">
+          <span>🌿</span>
+          <span>🧑‍🍳</span>
+          <span>🏆</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p>Since 2005, <strong>Thali House</strong> has been a celebration of India's rich culinary heritage. Every thali on our menu is a journey through a different region, crafted with age-old recipes passed down through generations.</p>
+        <p>We source our spices directly from farms across India and prepare everything fresh daily. No shortcuts, no compromises — just pure, authentic flavour on every plate.</p>
+
+        <ul class="about-list">
+          <li>🐟🍛 <strong>Bengali Thali</strong> — A sweet-spicy journey through Bengal's soul, with fish curry and mishti doi that feel like home.</li>
+          <li>🥘🫓 <strong>Gujarati Thali</strong> — Pure vegetarian bliss where every bite carries the warmth of jaggery and fresh farm spices.</li>
+          <li>🍖🍲 <strong>Kashmiri Thali</strong> — A royal aromatic feast inspired by the saffron valleys — rich, slow-cooked and unforgettable.</li>
+          <li>🫓🥣 <strong>Maharashtrian Thali</strong> — The coastal heart of Maharashtra on one plate — tangy, bold and full of character.</li>
+          <li>🧈🫓 <strong>Punjabi Thali</strong> — Bold, buttery flavors from the land of five rivers — every bite is pure comfort food.</li>
+          <li>🫓🥟 <strong>Rajasthani Thali</strong> — Desert royalty in every bite — dal baati churma made the old-fashioned way, nothing less.</li>
+          <li>🍚🥥 <strong>South Indian Thali</strong> — A wholesome banana-leaf feast from the south — clean, fresh and deeply satisfying.</li>
+          <li>🥞☕ <strong>Tiffins Thali</strong> — Light and healthy morning goodness — idli, upma, poha just like your grandmother made it.</li>
+        </ul>
+
+        <div class="features">
+          <span class="feature-tag">🌿 Farm Fresh</span>
+          <span class="feature-tag">🧑‍🍳 Expert Chefs</span>
+          <span class="feature-tag">🍃 No Preservatives</span>
+          <span class="feature-tag">🏆 Award Winning</span>
+          <span class="feature-tag">🌾 Traditional Recipes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 6.SOCIAL -->
+<section class="social-section" id="social">
+  <div class="section-inner">
+    <span class="section-tag">✦ Stay Connected ✦</span>
+    <h2 class="section-title">Follow Us</h2>
+    <div class="divider-line"></div>
+    <br>
+    <p class="social-desc">Follow us on social media for daily specials, behind-the-scenes kitchen stories and food that makes you hungry just looking at it.</p>
+
+    <div class="social-grid">
+
+      <a href="https://www.facebook.com/thalifood" target="_blank" class="social-card social-fb">
+        <div class="social-icon">📘</div>
+        <div class="social-info">
+          <span class="social-name">Facebook</span>
+          <span class="social-handle">@ThaliHouse</span>
+          <span class="social-desc-small">Recipes, events &amp; updates</span>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <a href="https://twitter.com/thalifood" target="_blank" class="social-card social-tw">
+        <div class="social-icon">🐦</div>
+        <div class="social-info">
+          <span class="social-name">Twitter / X</span>
+          <span class="social-handle">@ThaliHouse</span>
+          <span class="social-desc-small">Daily food thoughts &amp; news</span>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <a href="https://www.instagram.com/everydayfooodlife?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-card social-ig">
+        <div class="social-icon">📸</div>
+        <div class="social-info">
+          <span class="social-name">Instagram</span>
+          <span class="social-handle">@ThaliHouse</span>
+          <span class="social-desc-small">Food photos &amp; reels</span>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/@HyderabadWala" target="_blank" class="social-card social-yt">
+        <div class="social-icon">▶️</div>
+        <div class="social-info">
+          <span class="social-name">YouTube</span>
+          <span class="social-handle">@Thali House</span>
+          <span class="social-desc-small">Cooking videos &amp; vlogs</span>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 7.CONTACT-->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <span class="section-tag">✦ Get In Touch ✦</span>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="divider-line"></div>
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h3>Visit Us</h3>
+
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>Address</strong>
+            <p>17, Spice Garden Road, GPM ,<br> Andhra Pradesh, India – 535270</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 98765 43210<br>+91 98765 43201</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <strong>Email</strong>
+            <p>hello@thalihouse.in<br>orders@thalihouse.in</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">🕐</span>
+          <div>
+            <strong>Opening Hours</strong>
+            <p>Monday - Friday: 10:00 AM - 10:00 PM<br>Saturday - Sunday: 9:00 AM - 11:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-book">
+        <h3>Book a Table</h3>
+        <p>Want to reserve a spot? Call us directly or drop us a message — we'll confirm your booking within the hour.</p>
+        <a href="tel:+919876543210" class="btn-primary">📞 Call to Book</a>
+        <a href="mailto:hello@thalihouse.in" class="btn-outline" style="margin-top:12px;">✉️ Send an Email</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 8.FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="footer-logo-icon">🍽️</span>
+        <div>
+          <span class="footer-logo-name">Thali House</span>
+          <span class="footer-logo-sub">Authentic Indian Thalis</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Serving the soul of India, one thali at a time. Made fresh every day since 2005.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our Thalis</h4>
+      <ul>
+        <li><a href="#menu">🐟 Bengali Thali — ₹399</a></li>
+        <li><a href="#menu">🥘 Gujarati Thali — ₹329</a></li>
+        <li><a href="#menu">🍖 Kashmiri Thali — ₹369</a></li>
+        <li><a href="#menu">🫓 Maharashtrian Thali — ₹329</a></li>
+        <li><a href="#menu">🧈 Punjabi Thali — ₹359</a></li>
+        <li><a href="#menu">🌾 Rajasthani Thali — ₹329</a></li>
+        <li><a href="#menu">🍚 South Indian Thali — ₹299</a></li>
+        <li><a href="#menu">🥣 Tiffins Thali — ₹249</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>📍 17, Spice Garden Road,<br>GPM, Andhra Pradesh, India</p>
+      <p>📞 +91 98765 43210 <br>
+             +91 98765 43201 </p>
+      <p>✉️ hello@thalihouse.in</p>
+      <p>🕐 Mon-Fri: 10AM - 10PM <br>
+            Sat-Sun: 9AM - 11PM </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p> © 2005 Thali House. All rights reserved.</p>
+    <p>Made with ❤️ in India</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
