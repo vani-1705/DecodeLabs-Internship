@@ -87,6 +87,8 @@ Thali-House/
 │   ├── Punjabi_Thali.png
 │   ├── SouthIndian_Thali.png
 │   └── ...
+```
+
 # 🎨 Design Highlights
 
 - Elegant typography using Google Fonts
