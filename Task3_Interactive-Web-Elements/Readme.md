@@ -9,7 +9,7 @@ A modern and responsive Image Gallery website created using HTML, CSS, and JavaS
 # 🌐 Live Demo
 
 ## Vercel:
-https://codealphaimage-gallery.vercel.app/
+https://task3-interactive-web-elements.vercel.app/
 
 ---
 
