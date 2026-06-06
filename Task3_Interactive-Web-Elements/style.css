@@ -147,7 +147,7 @@ header {
 
 header h1 {
   font-family:    'Playfair Display', serif;
-  font-size:      clamp(2.2rem, 5.5vw, 3.8rem);
+  font-size:      clamp(2rem, 5vw, 3rem);
   font-weight:    900;
   letter-spacing: -2px;
   line-height:    1.05;
@@ -174,7 +174,7 @@ header p {
 
 .search-icon {
   position:   absolute;
-  left:       13px;
+  left:       11px;
   top:        50%;
   transform:  translateY(-50%);
   color:      var(--text-muted);
@@ -196,7 +196,7 @@ header p {
 
 .search-wrap input:focus {
   border-color: var(--accent);
-  width:        270px;
+  width:        220px;
 }
 
 .search-wrap input::placeholder {
