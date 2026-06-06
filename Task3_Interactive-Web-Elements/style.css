@@ -1,0 +1,848 @@
+/* ==========================================
+   IMAGE GALLERY — style.css
+========================================== */
+
+/* 1. CSS VARIABLES & RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Dark theme (default) */
+  --bg:           #0d0d0d;
+  --surface:      #161616;
+  --surface2:     #1f1f1f;
+  --surface3:     #252525;
+  --border:       #2e2e2e;
+  --text:         #f2f2f2;
+  --text-muted:   #888;
+  --text-dim:     #555;
+  --accent:       #3B82F6;
+  --accent2:      #06B6D4;
+  --accent-glow:  rgba(59,130,246,0.35);
+  --card-shadow:  0 8px 32px rgba(0,0,0,0.5);
+  --radius:       14px;
+  --radius-sm:    8px;
+  --nav-bg:       rgba(13,13,13,0.85);
+  --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(13,13,13,0.95) 100%);
+}
+
+body.light-theme {
+  --bg:           #f4f4f5;
+  --surface:      #ffffff;
+  --surface2:     #f0f0f2;
+  --surface3:     #e8e8eb;
+  --border:       #d8d8dc;
+  --text:         #111111;
+  --text-muted:   #666;
+  --text-dim:     #999;
+  --accent:       #2563EB;
+  --accent2:      #0891B2;
+  --accent-glow:  rgba(37,99,235,0.2);
+  --card-shadow:  0 4px 20px rgba(0,0,0,0.1);
+  --nav-bg:       rgba(244,244,245,0.9);
+  --hero-overlay: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(244,244,245,0.95) 100%);
+}
+
+
+/* 2. BODY & BASE */
+body {
+  background:  var(--bg);
+  color:       var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height:  100vh;
+  overflow-x:  hidden;
+  transition:  background 0.55s, color 0.45s;
+}
+
+
+/* 3. NAVBAR  */
+.navbar {
+  position:        fixed;
+  top:             0;
+  left:            0;
+  right:           0;
+  z-index:         500;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         0 32px;
+  height:          75px;
+  background:      var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom:   1px solid var(--border);
+  transition:      background 0.35s, border-color 0.35s;
+}
+
+.nav-logo {
+  font-family:    'Playfair Display', serif;
+  font-size:      2rem;
+  font-weight:    700;
+  color:          var(--text);
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span {
+  color: var(--accent);
+}
+
+.nav-right {
+  display:     flex;
+  align-items: center;
+  gap:         14px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  width:           50px;
+  height:          50px;
+  background:      var(--surface2);
+  border:          1px solid var(--border);
+  border-radius:   50%;
+  color:           var(--text-muted);
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  transition:      all 0.25s;
+  flex-shrink:     0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color:        var(--accent);
+}
+
+.moon-icon { display: block; }
+.sun-icon  { display: none; }
+
+body.light-theme .moon-icon { display: none; }
+body.light-theme .sun-icon  { display: block; }
+
+
+/* 4. HEADER / HERO */
+header {
+  position:   relative;
+  text-align: center;
+  padding:    130px 20px 52px;
+  overflow:   hidden;
+}
+
+.header-bg {
+  position:   absolute;
+  inset:      0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(6,182,212,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index:  1;
+}
+
+header h1 {
+  font-family:    'Playfair Display', serif;
+  font-size:      clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight:    900;
+  letter-spacing: -2px;
+  line-height:    1.05;
+  background:     linear-gradient(135deg, var(--text) 30%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom:   10px;
+}
+
+header p {
+  color:          var(--text-muted);
+  font-size:      1.5rem;
+  font-weight:    400;
+  letter-spacing: 0.3px;
+}
+
+
+/* 5. SEARCH BAR */
+.search-wrap {
+  position:    relative;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  position:   absolute;
+  left:       13px;
+  top:        50%;
+  transform:  translateY(-50%);
+  color:      var(--text-muted);
+  pointer-events: none;
+}
+
+.search-wrap input {
+  background:    var(--surface2);
+  border:        1px solid var(--border);
+  border-radius: 999px;
+  padding:       9px 18px 9px 40px;
+  color:         var(--text);
+  font-family:   inherit;
+  font-size:     1.05rem;
+  width:         220px;
+  outline:       none;
+  transition:    border-color .25s, width .3s, background .25s;
+}
+
+.search-wrap input:focus {
+  border-color: var(--accent);
+  width:        270px;
+}
+
+.search-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+
+/* 6. CONTROLS — Categories & Filters */
+.controls {
+  max-width:  1300px;
+  margin:     0 auto 20px;
+  padding:    0 24px;
+  display:    flex;
+  flex-direction: column;
+  gap:        16px;
+}
+
+.controls-divider {
+  height:     1px;
+  background: var(--border);
+}
+
+/* Category Buttons */
+.categories {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       8px;
+}
+
+.cat-btn {
+  background:    var(--surface2);
+  border:        1px solid var(--border);
+  color:         var(--text-muted);
+  padding:       8px 18px;
+  border-radius: 999px;
+  font-family:   inherit;
+  font-size:     1rem;
+  font-weight:   500;
+  cursor:        pointer;
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  transition:    all .22s;
+}
+
+.cat-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.cat-btn:hover {
+  border-color: var(--accent);
+  color:        var(--text);
+  transform:    translateY(-1px);
+}
+
+.cat-btn.active {
+  background:   var(--accent);
+  border-color: var(--accent);
+  color:        #fff;
+  box-shadow:   0 0 20px var(--accent-glow);
+}
+
+/* Filter Row */
+.filter-row {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  flex-wrap:   wrap;
+}
+
+.filters-label {
+  font-size:      0.95rem;
+  font-weight:    700;
+  color:          var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space:    nowrap;
+  padding:        6px 0;
+  border-right:   1px solid var(--border);
+  padding-right:  12px;
+}
+
+.filters {
+  display:   flex;
+  gap:       6px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background:    var(--surface);
+  border:        1px solid var(--border);
+  color:         var(--text-muted);
+  padding:       6px 16px;
+  border-radius: var(--radius-sm);
+  font-family:   inherit;
+  font-size:     0.85rem;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    all .2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent2);
+  color:        var(--accent2);
+}
+
+.filter-btn.active {
+  background:   var(--surface2);
+  border-color: var(--accent2);
+  color:        var(--accent2);
+  box-shadow:   0 0 12px rgba(6,182,212,0.2);
+}
+
+
+/* 7. GALLERY META / COUNT */
+.gallery-meta {
+  max-width: 1300px;
+  margin:    0 auto 16px;
+  padding:   0 24px;
+}
+
+#galleryCount {
+  font-size:  0.90rem;
+  font-weight: 600;
+  color:      var(--text-dim);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+
+/* 8. GALLERY GRID (CSS Columns — Masonry) */
+.gallery {
+  max-width:  1300px;
+  margin:     0 auto;
+  padding:    0 24px;
+  columns:    4;
+  column-gap: 14px;
+}
+
+
+/* 9. GALLERY ITEM (Card) */
+.gallery-item {
+  break-inside:   avoid;
+  margin-bottom:  14px;
+  border-radius:  var(--radius);
+  overflow:       hidden;
+  position:       relative;
+  cursor:         pointer;
+  display:        block;
+  background:     var(--surface);
+
+  transition: transform .32s cubic-bezier(.34,1.56,.64,1),
+              box-shadow .32s ease;
+
+  /* entry animation */
+  animation: fadeUp .45s ease both;
+}
+
+.gallery-item:hover {
+  transform:  translateY(-7px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.65), 0 0 0 1px var(--accent);
+  z-index:    10;
+}
+
+body.light-theme .gallery-item:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18), 0 0 0 1px var(--accent);
+}
+
+.gallery-item img {
+  width:      100%;
+  display:    block;
+  transition: filter .3s ease, transform .32s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+
+/* 10. HOVER OVERLAY */
+.overlay {
+  position:       absolute;
+  inset:          0;
+  background:     linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 55%);
+  opacity:        0;
+  transition:     opacity .3s;
+  border-radius:  var(--radius);
+
+  display:         flex;
+  flex-direction:  column;
+  justify-content: flex-end;
+  padding:         16px;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .tag {
+  font-size:      1rem;
+  font-weight:    700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:          var(--accent2);
+  margin-bottom:  5px;
+}
+
+.overlay .img-title {
+  font-size:   1rem;
+  font-weight: 600;
+  color:       #fff;
+  line-height: 1.3;
+}
+
+/* zoom icon (top-right of card) */
+.overlay .zoom-icon {
+  position:        absolute;
+  top:             15px;
+  right:           15px;
+  width:           37px;
+  height:          37px;
+  background:      rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius:   50%;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1rem;
+  border:          1px solid rgba(255,255,255,0.2);
+  transition:      background .2s, transform .2s;
+}
+
+.gallery-item:hover .zoom-icon {
+  background: var(--accent);
+  transform:  scale(1.1);
+}
+
+
+/* 11. CSS IMAGE FILTERS - Applied as class on .gallery-item (and on #lbImg inside lightbox)*/
+/* Gallery card filters */
+.gallery-item.f-bw       img { filter: grayscale(100%); }
+.gallery-item.f-warm     img { filter: sepia(60%) saturate(140%); }
+.gallery-item.f-cool     img { filter: hue-rotate(180deg) saturate(120%); }
+.gallery-item.f-vivid    img { filter: saturate(200%) contrast(110%); }
+.gallery-item.f-fade     img { filter: brightness(110%) saturate(60%) contrast(90%); }
+.gallery-item.f-dramatic img { filter: contrast(140%) brightness(90%); }
+
+/* Lightbox main image filters */
+#lbImg.f-bw       { filter: grayscale(100%); }
+#lbImg.f-warm     { filter: sepia(60%) saturate(140%); }
+#lbImg.f-cool     { filter: hue-rotate(180deg) saturate(120%); }
+#lbImg.f-vivid    { filter: saturate(200%) contrast(110%); }
+#lbImg.f-fade     { filter: brightness(110%) saturate(60%) contrast(90%); }
+#lbImg.f-dramatic { filter: contrast(140%) brightness(90%); }
+
+
+/* 12. LOAD MORE BUTTON  */
+.load-more-wrap {
+  text-align: center;
+  padding:    44px 20px 60px;
+}
+
+.load-more-btn {
+  background:    var(--surface2);
+  border:        1.5px solid var(--border);
+  color:         var(--text);
+  padding:       13px 40px;
+  border-radius: 999px;
+  font-family:   inherit;
+  font-size:     1rem;
+  font-weight:   500;
+  letter-spacing: 0.3px;
+  cursor:        pointer;
+  transition:    all .25s;
+
+  display:     inline-flex;
+  align-items: center;
+  gap:         8px;
+}
+
+.load-more-btn:hover {
+  background:   var(--accent);
+  border-color: var(--accent);
+  color:        #fff;
+  box-shadow:   0 0 24px var(--accent-glow);
+  transform:    translateY(-2px);
+}
+
+/* spinner — hidden by default, shown when .loading */
+.load-more-btn svg {
+  display:   none;
+  animation: spin 1.2s linear infinite;
+}
+
+.load-more-btn.loading svg {
+  display: block;
+}
+
+
+/* ─────────────────────────────────────────
+   13. LIGHTBOX
+───────────────────────────────────────── */
+.lightbox {
+  position:        fixed;
+  inset:           0;
+  z-index:         1000;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         20px;
+
+  opacity:        0;
+  pointer-events: none;
+  transition:     opacity .3s;
+}
+
+.lightbox.open {
+  opacity:        1;
+  pointer-events: all;
+}
+
+/* dark blurred backdrop */
+.lb-backdrop {
+  position:        absolute;
+  inset:           0;
+  background:      rgba(0,0,0,0.93);
+  backdrop-filter: blur(10px);
+  cursor:          pointer;
+}
+
+/* the main content box */
+.lb-box {
+  position:      relative;
+  z-index:       2;
+  max-width:     min(900px, 95vw);
+  width:         100%;
+  background:    var(--surface);
+  border:        2px solid var(--border);
+  border-radius: 20px;
+  overflow:      hidden;
+  box-shadow:    0 40px 100px rgba(0,0,0,0.8);
+
+  transform:  scale(0.92) translateY(20px);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.lightbox.open .lb-box {
+  transform: scale(1) translateY(0);
+}
+
+/* main image area */
+.lb-img-wrap {
+  position:     relative;
+  width:        100%;
+  aspect-ratio: 16 / 10;
+  background:   #000;
+  overflow:     hidden;
+}
+
+.lb-img-wrap img {
+  width:      100%;
+  height:     100%;
+  object-fit: contain;
+  display:    block;
+  transition: filter .35s ease, opacity .25s;
+}
+
+/* Image title inside lightbox image */
+.lb-title-overlay {
+  position:    absolute;
+  bottom:      0;
+  left:        0;
+  right:       0;
+  padding:     12px 16px;
+  background:  linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  font-size:   0.85rem;
+  font-weight: 600;
+  color:       #fff;
+  opacity:     0;
+  transition:  opacity .3s;
+}
+
+.lb-img-wrap:hover .lb-title-overlay {
+  opacity: 1;
+}
+
+/* counter text */
+.lb-counter {
+  text-align:  center;
+  font-size:   1rem;
+  color:       var(--text-muted);
+  padding:     10px 16px 4px;
+  font-weight: 500;
+}
+
+
+/* ─────────────────────────────────────────
+   14. LIGHTBOX — NAV BUTTONS
+───────────────────────────────────────── */
+/* Close ✕ */
+.lb-close {
+  position:        absolute;
+  top:             16px;
+  right:           16px;
+  width:           39px;
+  height:          39px;
+  background:      rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border:          1px solid rgba(255,255,255,0.2);
+  border-radius:   50%;
+  color:           #fff;
+  font-size:       1.5rem;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  transition:      background .2s, transform .2s;
+  z-index:         5;
+}
+
+.lb-close:hover {
+  background: rgba(220,50,50,0.7);
+  transform:  scale(1.1);
+}
+
+/* Prev / Next arrows */
+.lb-nav {
+  position:        absolute;
+  top:             50%;
+  transform:       translateY(-50%);
+  width:           48px;
+  height:          48px;
+  background:      rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border:          1px solid rgba(255,255,255,0.2);
+  border-radius:   50%;
+  color:           #fff;
+  font-size:       2rem;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  transition:      background .2s, transform .2s;
+  z-index:         5;
+}
+
+.lb-nav:hover {
+  background: var(--accent);
+}
+
+.lb-prev { left: 14px; }
+.lb-next { right: 14px; }
+
+.lb-prev:hover { transform: translateY(-50%) translateX(-3px); }
+.lb-next:hover { transform: translateY(-50%) translateX(3px); }
+
+
+/* ─────────────────────────────────────────
+   15. LIGHTBOX — FILTER STRIP
+───────────────────────────────────────── */
+.lb-filters {
+  display:         flex;
+  align-items:     center;
+  gap:             6px;
+  flex-wrap:       wrap;
+  padding:         12px 18px;
+  background:      var(--surface2);
+  border-top:      1px solid var(--border);
+  justify-content: center;
+}
+
+.lb-filters-label {
+  font-size:      1rem;
+  font-weight:    700;
+  color:          var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-right:   4px;
+}
+
+.lb-filter-btn {
+  background:    var(--surface);
+  border:        1px solid var(--border);
+  color:         var(--text-muted);
+  padding:       5px 14px;
+  border-radius: var(--radius-sm);
+  font-family:   inherit;
+  font-size:     1rem;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    all .2s;
+}
+
+.lb-filter-btn:hover {
+  border-color: var(--accent2);
+  color:        var(--accent2);
+}
+
+.lb-filter-btn.active {
+  background:   var(--accent);
+  border-color: var(--accent);
+  color:        #fff;
+  box-shadow:   0 0 14px var(--accent-glow);
+}
+
+
+/* ─────────────────────────────────────────
+   16. LIGHTBOX — THUMBNAIL STRIP
+───────────────────────────────────────── */
+.lb-thumbs {
+  display:    flex;
+  gap:        8px;
+  padding:    12px 18px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border);
+  scrollbar-width: none;
+}
+
+.lb-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.lb-thumb {
+  flex-shrink:   0;
+  width:         66px;
+  height:        50px;
+  border-radius: 8px;
+  overflow:      hidden;
+  cursor:        pointer;
+  border:        2px solid transparent;
+  opacity:       0.6;
+  transition:    border-color .2s, transform .2s, opacity .2s;
+}
+
+.lb-thumb:hover {
+  opacity:   0.9;
+  transform: scale(1.06);
+}
+
+.lb-thumb.active {
+  border-color: var(--accent);
+  opacity:      1;
+  box-shadow:   0 0 10px var(--accent-glow);
+}
+
+.lb-thumb img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+
+/* ─────────────────────────────────────────
+   17. ANIMATIONS & KEYFRAMES
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity:   0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ─────────────────────────────────────────
+   18. RESPONSIVE — Media Queries
+───────────────────────────────────────── */
+/* Large desktop */
+@media (min-width: 1400px) {
+  .gallery { columns: 5; }
+}
+
+/* Tablet landscape */
+@media (max-width: 1100px) {
+  .gallery { columns: 3; }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .gallery { columns: 2; }
+
+  .navbar { padding: 0 16px; }
+
+  .search-wrap input {
+    width: 160px;
+  }
+
+  .search-wrap input:focus {
+    width: 200px;
+  }
+
+  header {
+    padding: 100px 20px 40px;
+  }
+
+  .controls { padding: 0 16px; }
+  .gallery  { padding: 0 16px; }
+
+  .lb-box { border-radius: 14px; }
+
+  .lb-nav {
+    width:  40px;
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .gallery { columns: 1; }
+
+  .navbar {
+    height: 54px;
+  }
+
+  header { padding: 90px 16px 32px; }
+
+  .search-wrap input { width: 130px; }
+
+  .cat-btn { font-size: 0.78rem; padding: 6px 14px; }
+
+  .lb-box { border-radius: 10px; }
+
+  .lb-img-wrap { aspect-ratio: 4 / 3; }
+
+  .lb-nav {
+    width:  36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .lb-thumb {
+    width:  52px;
+    height: 40px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  header { padding: 80px 20px 28px; }
+  .gallery { columns: 3; }
+}
