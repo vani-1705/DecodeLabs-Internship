@@ -1,7 +1,6 @@
 /* ======================================
    IMAGE GALLERY — script.js
 ========================================= */
-
 /* ------------------------------------------------------------
     1. IMAGE DATA — 50 images  
     
@@ -14,75 +13,75 @@
    ------------------------------------------------------------ */
 
 const IMAGES = [
-  /* -- ARTS (5) -- */
-  { id:1,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Arts1.png",      title:"Photography",       cat:"arts",     tags:["Camera","Photos"] },
-  { id:2,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Arts2.png",      title:"Singing",           cat:"arts",     tags:["Music","Songs"] },
-  { id:3,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Arts3.png",      title:"Pottery",           cat:"arts",     tags:["Clay","Pots"] },
-  { id:4,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Arts4.png",      title:"Dancing",           cat:"arts",     tags:["Classical","Dance"] },
-  { id:5,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Arts5.png",      title:"Drawing",           cat:"arts",     tags:["Draw","Sketches"] },
+     /* ARTS (5) */
+  { id:1, src:"images/Arts1.png", title:"Photography", cat:"arts", tags:["Camera","Photos"] },
+  { id:2, src:"images/Arts2.png", title:"Singing", cat:"arts", tags:["Music","Songs"] },
+  { id:3, src:"images/Arts3.png", title:"Pottery", cat:"arts", tags:["Clay","Pots"] },
+  { id:4, src:"images/Arts4.png", title:"Dancing", cat:"arts", tags:["Classical","Dance"] },
+  { id:5, src:"images/Arts5.png", title:"Drawing", cat:"arts", tags:["Draw","Sketches"] },
 
-  /* -- ANIMALS (5) -- */
-  { id:6,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Animals1.png",   title:"Elephants",         cat:"animals",  tags:["Elephant","Strong Animal"] },
-  { id:7,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Animals2.png",   title:"Pandas",            cat:"animals",  tags:["Pandas","Cute Animal"] },
-  { id:8,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Animals3.png",   title:"Kangaroos",         cat:"animals",  tags:["Kangaroo","Jumping Animal"] },
-  { id:9,  src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Animals4.png",   title:"Lion Hunting",      cat:"animals",  tags:["Lion","King of forest"] },
-  { id:10, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Animals5.png",   title:"Cheetah Hunting",   cat:"animals",  tags:["Cheetah","Fastest Animal"] },
+  /* ANIMALS (5) */
+  { id:6, src:"images/Animals1.png", title:"Elephants", cat:"animals", tags:["Elephant","Strong Animal"] },
+  { id:7, src:"images/Animals2.png", title:"Pandas", cat:"animals", tags:["Pandas","Cute Animal"] },
+  { id:8, src:"images/Animals3.png", title:"Kangaroos", cat:"animals", tags:["Kangaroo","Jumping Animal"] },
+  { id:9, src:"images/Animals4.png", title:"Lion Hunting", cat:"animals", tags:["Lion","King of forest"] },
+  { id:10, src:"images/Animals5.png", title:"Cheetah Hunting", cat:"animals", tags:["Cheetah","Fastest Animal"] },
 
-  /* -- BIRDS (5) -- */
-  { id:11, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Birds1.png",     title:"Peacock",           cat:"birds",    tags:["Dancing","National Bird"] },
-  { id:12, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Birds2.png",     title:"Sun Parakeets",     cat:"birds",    tags:["Cute","Love Birds"] },
-  { id:13, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Birds3.png",     title:"Taiwan Blue Magpie",cat:"birds",    tags:["Crow","Blue magpie"] },
-  { id:14, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Birds4.png",     title:"Birds of Paradise", cat:"birds",    tags:["Beautiful","Colourful Birds"] },
-  { id:15, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Birds5.png",     title:"Fantail Pigeon",    cat:"birds",    tags:["Eyes","White Peacock"] },
+  /* BIRDS (5) */
+  { id:11, src:"images/Birds1.png", title:"Peacock", cat:"birds", tags:["Dancing","National Bird"] },
+  { id:12, src:"images/Birds2.png", title:"Sun Parakeets", cat:"birds", tags:["Cute","Love Birds"] },
+  { id:13, src:"images/Birds3.png", title:"Taiwan Blue Magpie", cat:"birds", tags:["Crow","Blue magpie"] },
+  { id:14, src:"images/Birds4.png", title:"Birds of Paradise", cat:"birds", tags:["Beautiful","Colourful Birds"] },
+  { id:15, src:"images/Birds5.png", title:"Fantail Pigeon", cat:"birds", tags:["Eyes","White Peacock"] },
 
-  /* -- CARTOONS (5) -- */
-  { id:16, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Cartoons1.png",  title:"Shinchan",          cat:"cartoons", tags:["Shinchan","Comedy"] },
-  { id:17, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Cartoons2.png",  title:"Tom and Jerry",     cat:"cartoons", tags:["Tom VS Jerry","Fighting"] },
-  { id:18, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Cartoons3.png",  title:"Doraemon",          cat:"cartoons", tags:["Robot","Gadgets"] },
-  { id:19, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Cartoons4.png",  title:"Chota Bheem",       cat:"cartoons", tags:["Ladoos","Strong"] },
-  { id:20, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Cartoons5.png",  title:"Ben10",             cat:"cartoons", tags:["Watch","Aliens"] },
+  /* CARTOONS (5) */
+  { id:16, src:"images/Cartoons1.png", title:"Shinchan", cat:"cartoons", tags:["Shinchan","Comedy"] },
+  { id:17, src:"images/Cartoons2.png", title:"Tom and Jerry", cat:"cartoons", tags:["Tom VS Jerry","Fighting"] },
+  { id:18, src:"images/Cartoons3.png", title:"Doraemon", cat:"cartoons", tags:["Robot","Gadgets"] },
+  { id:19, src:"images/Cartoons4.png", title:"Chota Bheem", cat:"cartoons", tags:["Ladoos","Strong"] },
+  { id:20, src:"images/Cartoons5.png", title:"Ben10", cat:"cartoons", tags:["Watch","Aliens"] },
 
-  /* -- CHILDREN (5) -- */
-  { id:21, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Children1.png",  title:"Baby Boy",          cat:"children", tags:["Sleeping","boy"] },
-  { id:22, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Children2.png",  title:"Smiling Childs",    cat:"children", tags:["Smiling","Children"] },
-  { id:23, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Children3.png",  title:"Baby Girl",         cat:"children", tags:["Standing Girl","Cute"] },
-  { id:24, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Children4.png",  title:"Children With Flag",cat:"children", tags:["Childrens","Flag"] },
-  { id:25, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Children5.png",  title:"Twin Babies",       cat:"children", tags:["Twins","cute"] },
+  /* CHILDREN (5) */
+  { id:21, src:"images/Children1.png", title:"Baby Boy", cat:"children", tags:["Sleeping","boy"] },
+  { id:22, src:"images/Children2.png", title:"Smiling Childs", cat:"children", tags:["Smiling","Children"] },
+  { id:23, src:"images/Children3.png", title:"Baby Girl", cat:"children", tags:["Standing Girl","Cute"] },
+  { id:24, src:"images/Children4.png", title:"Children With Flag", cat:"children", tags:["Childrens","Flag"] },
+  { id:25, src:"images/Children5.png", title:"Twin Babies", cat:"children", tags:["Twins","cute"] },
 
-  /* -- FOOD (5) -- */
-  { id:26, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Food1.png",      title:"Non-Veg Thali",     cat:"food",     tags:["Non-Veg","Animals"] },
-  { id:27, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Food2.png",      title:"Street Foods",      cat:"food",     tags:["Streets","Girls Fav Spot"] },
-  { id:28, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Food3.png",      title:"Veg Thali",         cat:"food",     tags:["Veg","Vegetables"] },
-  { id:29, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Food4.png",      title:"Tiffins Thali",     cat:"food",     tags:["Breakfast","Tiffins"] },
-  { id:30, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Food5.png",      title:"Sweets Thali",      cat:"food",     tags:["Sweets","Cravings"] },
+  /* FOOD (5) */
+  { id:26, src:"images/Food1.png", title:"Non-Veg Thali", cat:"food", tags:["Non-Veg","Animals"] },
+  { id:27, src:"images/Food2.png", title:"Street Foods", cat:"food", tags:["Streets","Girls Fav Spot"] },
+  { id:28, src:"images/Food3.png", title:"Veg Thali", cat:"food", tags:["Veg","Vegetables"] },
+  { id:29, src:"images/Food4.png", title:"Tiffins Thali", cat:"food", tags:["Breakfast","Tiffins"] },
+  { id:30, src:"images/Food5.png", title:"Sweets Thali", cat:"food", tags:["Sweets","Cravings"] },
 
-  /* -- HOUSES (5) -- */
-  { id:31, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Houses1.png",    title:"Kerala-Style House", cat:"houses",  tags:["Nalukettu","Traditional"] },
-  { id:32, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Houses2.png",    title:"Tree House",         cat:"houses",  tags:["Trees","Natural"] },
-  { id:33, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Houses3.png",    title:"Apartment Houses",   cat:"houses",  tags:["Buildings","Apartments"] },
-  { id:34, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Houses4.png",    title:"Boat House",         cat:"houses",  tags:["Boat","Water"] },
-  { id:35, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Houses5.png",    title:"Villa",              cat:"houses",  tags:["Big House","Luxurious"] },
+  /* HOUSES (5) */
+  { id:31, src:"images/Houses1.png", title:"Kerala-Style House", cat:"houses", tags:["Nalukettu","Traditional"] },
+  { id:32, src:"images/Houses2.png", title:"Tree House", cat:"houses", tags:["Trees","Natural"] },
+  { id:33, src:"images/Houses3.png", title:"Apartment Houses", cat:"houses", tags:["Buildings","Apartments"] },
+  { id:34, src:"images/Houses4.png", title:"Boat House", cat:"houses", tags:["Boat","Water"] },
+  { id:35, src:"images/Houses5.png", title:"Villa", cat:"houses", tags:["Big House","Luxurious"] },
 
-  /* ── NATURE (5) ── */
-  { id:36, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Nature1.png",    title:"Alpine Landscape",      cat:"nature",  tags:["Mountains","Italy"] },
-  { id:37, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Nature2.png",    title:"Chae Son Waterfall",    cat:"nature",  tags:["Waterfall","Thailand"] },
-  { id:38, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Nature3.png",    title:"Sunset Over Ocean",     cat:"nature",  tags:["Ocean","Sunset"] },
-  { id:39, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Nature4.png",    title:"Autumn Landscape Lake", cat:"nature",  tags:["Lake","Autumn"] },
-  { id:40, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Nature5.png",    title:"Carpathian Mountains",  cat:"nature",  tags:["Mountains","Wild Flowers"] },
+  /* NATURE (5) */
+  { id:36, src:"images/Nature1.png", title:"Alpine Landscape", cat:"nature", tags:["Mountains","Italy"] },
+  { id:37, src:"images/Nature2.png", title:"Chae Son Waterfall", cat:"nature", tags:["Waterfall","Thailand"] },
+  { id:38, src:"images/Nature3.png", title:"Sunset Over Ocean", cat:"nature", tags:["Ocean","Sunset"] },
+  { id:39, src:"images/Nature4.png", title:"Autumn Landscape Lake", cat:"nature", tags:["Lake","Autumn"] },
+  { id:40, src:"images/Nature5.png", title:"Carpathian Mountains", cat:"nature", tags:["Mountains","Wild Flowers"] },
 
-  /* -- PEOPLE (5) -- */
-  { id:41, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/People1.png",    title:"Mahesh Babu",       cat:"people",   tags:["Super Star","Handsome"] },
-  { id:42, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/People2.png",    title:"Kajal Aggarwal",    cat:"people",   tags:["Queen of Tollywood","Cutie"] },
-  { id:43, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/People3.png",    title:"Vijay Talapathy",   cat:"people",   tags:["Talapathy","CM of Tamil"] },
-  { id:44, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/People4.png",    title:"Trisha Krishnan",   cat:"people",   tags:["Miss Chennai Pageant","beauty"] },
-  { id:45, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/People5.png",    title:"Dulquer Salmaan",   cat:"people",   tags:["DQ","Malyalam boy"] },
+  /* PEOPLE (5) */
+  { id:41, src:"images/People1.png", title:"Mahesh Babu", cat:"people", tags:["Super Star","Handsome"] },
+  { id:42, src:"images/People2.png", title:"Kajal Aggarwal", cat:"people", tags:["Queen of Tollywood","Cutie"] },
+  { id:43, src:"images/People3.png", title:"Vijay Talapathy", cat:"people", tags:["Talapathy","CM of Tamil"] },
+  { id:44, src:"images/People4.png", title:"Trisha Krishnan", cat:"people", tags:["Miss Chennai Pageant","beauty"] },
+  { id:45, src:"images/People5.png", title:"Dulquer Salmaan", cat:"people", tags:["DQ","Malyalam boy"] },
 
-  /* -- TEMPLES (5) -- */
-  { id:46, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Temples1.png",   title:"Kasi Vishwanath",        cat:"temples",  tags:["Lord Shiva","Varanasi"] },
-  { id:47, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Temples2.png",   title:"Badrinath Temple",       cat:"temples",  tags:["Lord Vishnu","Uttarakhand"] },
-  { id:48, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Temples3.png",   title:"Ramanathaswamy Temple",  cat:"temples",  tags:["Lord Shiva","Tamil Nadu"] },
-  { id:49, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Temples4.png",   title:"Dwarakadish Temple",     cat:"temples",  tags:["Lord Krishna","Gujarat"] },
-  { id:50, src:"/home/rgukt/Downloads/PRO/Internships/Decodelabs/Project_3/images/Temples5.png",   title:"Virupaksha Temple",      cat:"temples",  tags:["Lord Shiva","Karnataka"] },
+  /* TEMPLES (5) */
+  { id:46, src:"images/Temples1.png", title:"Kasi Vishwanath", cat:"temples", tags:["Lord Shiva","Varanasi"] },
+  { id:47, src:"images/Temples2.png", title:"Badrinath Temple", cat:"temples", tags:["Lord Vishnu","Uttarakhand"] },
+  { id:48, src:"images/Temples3.png", title:"Ramanathaswamy Temple", cat:"temples", tags:["Lord Shiva","Tamil Nadu"] },
+  { id:49, src:"images/Temples4.png", title:"Dwarakadish Temple", cat:"temples", tags:["Lord Krishna","Gujarat"] },
+  { id:50, src:"images/Temples5.png", title:"Virupaksha Temple", cat:"temples", tags:["Lord Shiva","Karnataka"] },
 ];
 
 /* -----------------------
@@ -94,7 +93,6 @@ let lbFilter       = 'none';  // filter active inside lightbox
 let currentLbIndex = 0;       // which image is open in lightbox
 let visibleItems   = [];      // filtered + sliced images shown in gallery
 let shownCount     = 12;      // how many images to show (increases on Load More)
-
 
 /* ------------------------------------------------------------
    3. HELPER — getFilteredImages()
@@ -114,7 +112,6 @@ function getFilteredImages() {
     return catMatch && searchMatch;
   });
 }
-
 
 /* ---------------------------------------------------------------------------
    4. HELPER — renderGallery()
@@ -230,7 +227,6 @@ function updateLightbox() {
   buildThumbs();
 }
 
-
 /* ----------------------------------
    7. EVENT — Category Buttons
 --------------------------------- */
@@ -267,7 +263,6 @@ document.getElementById('searchInput').addEventListener('input', function() {
   shownCount = 12;
   renderGallery();
 });
-
 
 /* ---------------------------------
    10. EVENT — Load More Button
@@ -307,7 +302,6 @@ function closeLightbox() {
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 document.getElementById('lbBackdrop').addEventListener('click', closeLightbox);
 
-
 /* --------------------------------------------
    13. LIGHTBOX PREV / NEXT
 ------------------------------------------- */
@@ -320,7 +314,6 @@ document.getElementById('lbNext').addEventListener('click', function() {
   currentLbIndex = (currentLbIndex + 1) % visibleItems.length;
   updateLightbox();
 });
-
 
 /* -----------------------------------------
    14. KEYBOARD NAVIGATION
@@ -385,7 +378,6 @@ document.getElementById('lightbox').addEventListener('touchend', function(e) {
   }
 }, { passive: true });
 
-
 /* ---------------------------------------------
    17. THEME TOGGLE (Dark / Light)
 ----------------------------------------------*/
@@ -401,7 +393,6 @@ themeToggle.addEventListener('click', function() {
   const isLight = document.body.classList.contains('light-theme');
   localStorage.setItem('gallery-theme', isLight ? 'light' : 'dark');
 });
-
 
 /* ------------------------------------------
    18. INIT — first render on page load
