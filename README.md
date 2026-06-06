@@ -29,3 +29,15 @@ Task1_Static-Webpage-designing folder 📂
 Task2_Responsive-Web-Layout folder 📂
 
 ---
+# 📌 Task 3: Interactive Web Elements Using HTML, CSS & JavaScript
+
+📄 As per Task 3 requirements, an interactive webpage had to be developed using HTML, CSS, and JavaScript, focusing on DOM manipulation, user interactions, and dynamic content updates.
+
+🖼 Based on these instructions, I developed the Beautiful Moments Image Gallery using HTML, CSS, and JavaScript.
+
+✨ It provides an interactive and responsive gallery experience with image search, category filtering, lightbox preview, theme toggle, and various user-friendly features.
+
+# For more details you can see:
+Task3_Interactive-Web-Elements folder 📂
+
+---
