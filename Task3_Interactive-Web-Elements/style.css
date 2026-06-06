@@ -79,7 +79,7 @@ body {
 
 .nav-logo {
   font-family:    'Playfair Display', serif;
-  font-size:      2rem;
+  font-size:      1rem;
   font-weight:    700;
   color:          var(--text);
   letter-spacing: -0.5px;
@@ -184,12 +184,12 @@ header p {
 .search-wrap input {
   background:    var(--surface2);
   border:        1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 900px;
   padding:       9px 18px 9px 40px;
   color:         var(--text);
   font-family:   inherit;
   font-size:     0.85rem;
-  width:         220px;
+  width:         200px;
   outline:       none;
   transition:    border-color .25s, width .3s, background .25s;
 }
