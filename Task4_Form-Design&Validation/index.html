@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecodeLabs – Learn. Build. Secure.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating background blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- TOP-LEFT LOGO (always visible) -->
+  <div class="site-logo">DL <span style="color: #FFFFFF">DecodeLabs</span></div>
+
+  <div class="app">
+
+    <!-- ── WELCOME BOX ── -->
+    <section class="welcome-box" aria-label="Welcome">
+      <h1>Welcome 💐</h1>
+      <p>Thousands of aspiring developers learning how to create secure, accessible and
+         user-friendly real-world projects through our company. 👩‍💻</p>
+      <p class="cta-sub">To keep connected with us please login with your personal information 🙏</p>
+    </section>
+
+    <!-- ── GET STARTED BOX ── -->
+    <section class="getstarted-box" aria-label="Get Started">
+      <p class="gs-heading">Get started 🚀</p>
+
+      <button class="btn-primary" onclick="showForm('register')" aria-label="Create a new account">
+        ✨ Create an account
+      </button>
+      <p class="btn-hint">If you are not registered</p>
+
+      <button class="btn-secondary" onclick="showForm('signin')" aria-label="Sign in to your existing account">
+        🔑 Sign in to account
+      </button>
+      <p class="btn-hint">If you are already registered</p>
+    </section>
+
+  </div><!-- /app (hero row) -->
+
+  <!-- ── FORM OVERLAY / PAGE ── -->
+  <div class="form-overlay" id="form-overlay" aria-label="Authentication">
+    <div class="card" id="main-card">
+
+      <!-- ══ REGISTER FORM ══ -->
+      <div class="form-view" id="view-register">
+        <h2><span>Create</span> Your Account</h2>
+
+        <!-- Full Name -->
+        <div class="field">
+          <label for="r-name">Full Name</label>
+          <input type="text" id="r-name" placeholder="Please enter your name"
+            aria-required="true" aria-describedby="r-name-err" autocomplete="name" />
+          <span class="field-error" id="r-name-err" role="alert" aria-live="polite">
+            ⚠ Please complete this field
+          </span>
+        </div>
+
+        <!-- Phone Number with searchable country dropdown -->
+        <div class="field">
+          <label for="r-phone">Phone Number</label>
+          <div class="phone-row">
+            <div class="country-picker" id="r-country-picker">
+              <button type="button" class="country-btn" id="r-country-btn" onclick="toggleDropdown('r')">
+                <span id="r-selected-flag">🇮🇳</span>
+                <span id="r-selected-code">+91</span>
+                <span class="arrow">▾</span>
+              </button>
+              <div class="country-dropdown" id="r-country-dropdown">
+                <div class="search-wrap">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" class="country-search" id="r-country-search"
+                    placeholder="Search country..." oninput="filterCountries('r')" autocomplete="off" />
+                </div>
+                <ul class="country-list" id="r-country-list"></ul>
+              </div>
+            </div>
+            <input type="tel" id="r-phone" placeholder="Enter phone number"
+              aria-required="true" aria-describedby="r-phone-err" autocomplete="tel" />
+          </div>
+          <span class="field-error" id="r-phone-err" role="alert" aria-live="polite">
+            ⚠ Please enter a valid phone number
+          </span>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="r-email">Email Address</label>
+          <input type="email" id="r-email" placeholder="Please enter your valid email address"
+            aria-required="true" aria-describedby="r-email-err" aria-invalid="false" autocomplete="email" />
+          <span class="field-error" id="r-email-err" role="alert" aria-live="polite">
+            ❌ Please enter a valid email address. Example: name@gmail.com
+          </span>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label for="r-pass">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="r-pass" placeholder="Please enter your password"
+              aria-required="true" aria-describedby="r-pass-err r-pass-reqs" autocomplete="new-password" />
+            <button class="pw-toggle" type="button" onclick="togglePw('r-pass', this)" aria-label="Show password">🙈</button>
+          </div>
+          <span class="field-error" id="r-pass-err" role="alert" aria-live="polite">
+            ❌ Enter a strong password meeting all requirements
+          </span>
+          <div class="pw-strength" id="r-pass-strength">
+            <div class="strength-bar">
+              <div class="strength-seg" id="rs1"></div>
+              <div class="strength-seg" id="rs2"></div>
+              <div class="strength-seg" id="rs3"></div>
+            </div>
+            <div class="strength-label" id="r-strength-label">Password strength</div>
+            <ul class="pw-reqs" id="r-pass-reqs" aria-label="Password requirements">
+              <li id="rr-len">At least 8 characters</li>
+              <li id="rr-upper">One uppercase letter</li>
+              <li id="rr-lower">One lowercase letter</li>
+              <li id="rr-num">One number</li>
+              <li id="rr-sym">One special character</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field">
+          <label for="r-cpass">Confirm Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="r-cpass" placeholder="Re-enter your password"
+              aria-required="true" aria-describedby="r-cpass-err" autocomplete="new-password" />
+            <button class="pw-toggle" type="button" onclick="togglePw('r-cpass', this)" aria-label="Show confirm password">🙈</button>
+          </div>
+          <span class="field-error" id="r-cpass-err" role="alert" aria-live="polite">
+            ❌ Passwords do not match.
+          </span>
+        </div>
+
+        <button class="btn-submit" onclick="submitRegister()">Create Account</button>
+
+        <p class="switch-link">Already have an account? <button type="button" class="link-btn" onclick="showForm('signin')">Sign In</button></p>
+
+        <!-- Success -->
+        <div class="success-overlay" id="r-success" aria-live="polite">
+          <div class="success-check" aria-hidden="true">✅</div>
+          <div class="success-divider">━━━━━━━━━━━━━━</div>
+          <h3>Registration Successful!</h3>
+          <p>Welcome to DecodeLabs.<br>Your account details have been validated successfully.</p>
+          <div class="success-divider">━━━━━━━━━━━━━━</div>
+          <button class="btn-submit" style="margin-top:16px;" onclick="closeForm()">Back to Home</button>
+        </div>
+      </div>
+      <!-- /view-register -->
+
+      <!-- ══ SIGN IN FORM ══ -->
+      <div class="form-view" id="view-signin">
+        <h2><span>Sign in</span> to Account</h2>
+
+        <!-- Full Name -->
+        <div class="field">
+          <label for="s-name">Full Name</label>
+          <input type="text" id="s-name" placeholder="Please enter your name"
+            aria-required="true" aria-describedby="s-name-err" autocomplete="name" />
+          <span class="field-error" id="s-name-err" role="alert" aria-live="polite">
+            ⚠ Please complete this field
+          </span>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="s-email">Email Address</label>
+          <input type="email" id="s-email" placeholder="Please enter your valid email address"
+            aria-required="true" aria-describedby="s-email-err" aria-invalid="false" autocomplete="email" />
+          <span class="field-error" id="s-email-err" role="alert" aria-live="polite">
+            ❌ Please enter a valid email address. Example: name@gmail.com
+          </span>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label for="s-pass">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="s-pass" placeholder="Please enter your password"
+              aria-required="true" aria-describedby="s-pass-err s-pass-reqs" autocomplete="current-password" />
+            <button class="pw-toggle" type="button" onclick="togglePw('s-pass', this)" aria-label="Show password">🙈</button>
+          </div>
+          <span class="field-error" id="s-pass-err" role="alert" aria-live="polite">
+            ❌ Enter a strong password meeting all requirements
+          </span>
+          <div class="pw-strength" id="s-pass-strength">
+            <div class="strength-bar">
+              <div class="strength-seg" id="ss1"></div>
+              <div class="strength-seg" id="ss2"></div>
+              <div class="strength-seg" id="ss3"></div>
+            </div>
+            <div class="strength-label" id="s-strength-label">Password strength</div>
+            <ul class="pw-reqs" id="s-pass-reqs" aria-label="Password requirements">
+              <li id="sr-len">At least 8 characters</li>
+              <li id="sr-upper">One uppercase letter</li>
+              <li id="sr-lower">One lowercase letter</li>
+              <li id="sr-num">One number</li>
+              <li id="sr-sym">One special character</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="btn-submit" onclick="submitSignin()">Sign In</button>
+
+        <p class="switch-link">Don't have an account? <button type="button" class="link-btn" onclick="showForm('register')">Sign Up</button></p>
+
+        <!-- Success -->
+        <div class="success-overlay" id="s-success" aria-live="polite">
+          <div class="success-check" aria-hidden="true">✅</div>
+          <div class="success-divider">━━━━━━━━━━━━━━</div>
+          <h3>Sign in Successful!</h3>
+          <p>Welcome to DecodeLabs.<br>You have successfully signed in to your account.<br><br>Enjoy learning and building secure digital experiences.</p>
+          <div class="success-divider">━━━━━━━━━━━━━━</div>
+          <button class="btn-submit" style="margin-top:16px;" onclick="closeForm()">Back to Home</button>
+        </div>
+      </div>
+      <!-- /view-signin -->
+
+      <!-- Close button -->
+      <button class="card-close" onclick="closeForm()" aria-label="Close form">✕</button>
+
+    </div><!-- /card -->
+  </div><!-- /form-overlay -->
+
+  <script src="script.js"></script>
+</body>
+</html>
