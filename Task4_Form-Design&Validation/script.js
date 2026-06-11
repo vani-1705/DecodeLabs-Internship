@@ -1,12 +1,10 @@
-/* ══════════════════════════════════════════════════════════════
-   DecodeLabs – script.js
-   Full A-Z country list, searchable dropdown, form switching,
-   validation, password strength, shake errors, success states.
-══════════════════════════════════════════════════════════════ */
+/* ================================================
+      Form Design & Validation – script.js
+ ==================================================*/
 
 'use strict';
 
-// ─── FULL A-Z COUNTRY LIST ──────────────────────────────────────────────────
+/*  FULL A-Z COUNTRY LIST */
 const COUNTRIES = [
   { flag:'🇦🇫', code:'+93',   name:'Afghanistan',              digits:9  },
   { flag:'🇦🇱', code:'+355',  name:'Albania',                  digits:9  },
@@ -202,11 +200,10 @@ const COUNTRIES = [
   { flag:'🇿🇼', code:'+263',  name:'Zimbabwe',                 digits:9  },
 ];
 
-// Default to India (+91)
+/* Default to India (+91) */
 let selectedCountryIndex = COUNTRIES.findIndex(c => c.name === 'India');
 
-// ─── BUILD COUNTRY LIST ────────────────────────────────────────────────────────
-function buildCountryList(prefix, filter = '') {
+/*─── BUILD COUNTRY LIST */
   const list = document.getElementById(`${prefix}-country-list`);
   if (!list) return;
   list.innerHTML = '';
@@ -268,7 +265,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ─── FORM SHOW / HIDE ─────────────────────────────────────────────────────────
+/*  FORM SHOW / HIDE */
 function showForm(type) {
   const overlay = document.getElementById('form-overlay');
   const card    = document.getElementById('main-card');
@@ -290,7 +287,7 @@ function closeForm() {
   if (overlay) overlay.classList.remove('open');
 }
 
-// ─── PASSWORD TOGGLE ──────────────────────────────────────────────────────────
+/* PASSWORD TOGGLE */
 function togglePw(inputId, btn) {
   const inp = document.getElementById(inputId);
   if (!inp) return;
@@ -305,7 +302,7 @@ function togglePw(inputId, btn) {
   }
 }
 
-// ─── PASSWORD STRENGTH ────────────────────────────────────────────────────────
+/*  PASSWORD STRENGTH */
 function checkStrength(pw, prefix) {
   const reqs = {
     len:   pw.length >= 8 && pw.length <= 50,
@@ -341,7 +338,7 @@ function checkStrength(pw, prefix) {
   return reqs;
 }
 
-// ─── SHAKE + ERROR ────────────────────────────────────────────────────────────
+/*  SHAKE + ERROR */
 function shakeField(inputId, errId, show = true) {
   const inp = document.getElementById(inputId);
   const err = document.getElementById(errId);
@@ -364,7 +361,7 @@ function shakeField(inputId, errId, show = true) {
   }
 }
 
-// ─── VALIDATION HELPERS ───────────────────────────────────────────────────────
+/* VALIDATION HELPERS */
 function isValidEmail(v) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 }
@@ -379,7 +376,7 @@ function isStrongPassword(v, prefix) {
   return r.len && r.upper && r.lower && r.num && r.sym;
 }
 
-// ─── REGISTER SUBMIT ──────────────────────────────────────────────────────────
+/* REGISTER SUBMIT */
 function submitRegister() {
   let allOk = true;
 
@@ -411,7 +408,7 @@ function submitRegister() {
   }
 }
 
-// ─── SIGN IN SUBMIT ───────────────────────────────────────────────────────────
+/* SIGN IN SUBMIT */
 function submitSignin() {
   let allOk = true;
 
@@ -435,13 +432,13 @@ function submitSignin() {
   }
 }
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
+/* Default India Picker */
 document.addEventListener('DOMContentLoaded', () => {
   // Set India as default in country picker
   const india = COUNTRIES.findIndex(c => c.name === 'India');
   if (india !== -1) selectCountry('r', india);
 
-  // Live password strength
+  /* Live password strength */
   const rPass = document.getElementById('r-pass');
   if (rPass) rPass.addEventListener('input', () => checkStrength(rPass.value, 'rr'));
 
