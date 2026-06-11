@@ -41,3 +41,13 @@ Task2_Responsive-Web-Layout folder 📂
 Task3_Interactive-Web-Elements folder 📂
 
 ---
+# 📌 Task 4: Form Design & Validation Using HTML, CSS & JavaScript
+
+📄 As per Task 4 requirements, a responsive form had to be developed with proper input validation, error handling, and user-friendly feedback using HTML, CSS, and JavaScript.
+
+📝 Based on these instructions, I developed the **DecodeLabs Registration Portal** featuring Sign In and Create Account forms with real-time validation.
+
+🔐 It validates user inputs such as name, email, phone number, password strength, and confirm password matching while providing dynamic error and success messages for a better user experience.
+
+# For more details you can see:
+Task4_Form-Design-and-Validation folder 📂
