@@ -1,11 +1,10 @@
-/* ══════════════════════════════════════════════════════════════
+/* ==========================================
    DecodeLabs – style.css
-   Sky-blue plain background, responsive Welcome + Get Started boxes
-══════════════════════════════════════════════════════════════ */
+  =========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-/* ─── RESET & BASE ─────────────────────────────────────────── */
+/*  RESET & BASE  */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -16,7 +15,7 @@ body {
   position: relative;
 }
 
-/* ─── FLOATING BLOBS (subtle on sky blue) ──────────────────── */
+/*  FLOATING BLOBS  */
 .blob {
   position: fixed;
   border-radius: 50%;
@@ -35,7 +34,7 @@ body {
   to   { transform: translate(30px, 40px) scale(1.08); }
 }
 
-/* ─── SITE LOGO (always top-left) ──────────────────────────── */
+/*  SITE LOGO (always top-left) */
 .site-logo {
   position: fixed;
   top: 20px;
@@ -52,7 +51,7 @@ body {
   color: #154360;
 }
 
-/* ─── MAIN APP WRAPPER ──────────────────────────────────────── */
+/*  MAIN APP WRAPPER */
 .app {
   position: relative;
   z-index: 1;
@@ -64,7 +63,7 @@ body {
   gap: 32px;
 }
 
-/* ─── WELCOME BOX ───────────────────────────────────────────── */
+/* WELCOME BOX */
 .welcome-box {
   flex: 1;
   max-width: 500px;
@@ -102,7 +101,7 @@ body {
   color: #2980b9;
 }
 
-/* ─── GET STARTED BOX ───────────────────────────────────────── */
+/* GET STARTED BOX */
 .getstarted-box {
   flex: 1;
   max-width: 420px;
@@ -130,7 +129,7 @@ body {
   text-align: center;
 }
 
-/* ─── HERO BUTTONS ──────────────────────────────────────────── */
+/*  HERO BUTTONS */
 .btn-primary, .btn-secondary {
   display: flex;
   align-items: center;
@@ -172,7 +171,7 @@ body {
   margin-top: -6px;
 }
 
-/* ─── FORM OVERLAY ──────────────────────────────────────────── */
+/* FORM OVERLAY */
 .form-overlay {
   display: none;
   position: fixed;
@@ -190,7 +189,7 @@ body {
   display: flex;
 }
 
-/* ─── FORM CARD ─────────────────────────────────────────────── */
+/* FORM CARD */
 .card {
   position: relative;
   background: rgba(255, 255, 255, 0.75);
@@ -237,7 +236,7 @@ body {
 .form-view { display: none; }
 .form-view.active { display: block; }
 
-/* ─── FORM FIELDS ───────────────────────────────────────────── */
+/* FORM FIELDS */
 .field { margin-bottom: 16px; position: relative; }
 .field label {
   display: block;
@@ -267,7 +266,7 @@ body {
 .field input.error-field { border-color: #e53935; }
 .field input.success-field { border-color: #43a047; }
 
-/* ─── PHONE FIELD WITH CUSTOM DROPDOWN ──────────────────────── */
+/* PHONE FIELD WITH CUSTOM DROPDOWN */
 .phone-row { display: flex; gap: 8px; }
 .phone-row input { flex: 1; }
 
@@ -349,7 +348,7 @@ body {
 .country-list::-webkit-scrollbar { width: 5px; }
 .country-list::-webkit-scrollbar-thumb { background: #b0d4ea; border-radius: 4px; }
 
-/* ─── PASSWORD WRAPPER ──────────────────────────────────────── */
+/* PASSWORD WRAPPER */
 .pw-wrap { position: relative; }
 .pw-toggle {
   position: absolute;
@@ -365,7 +364,7 @@ body {
   padding: 4px;
 }
 
-/* ─── ERROR MESSAGES ────────────────────────────────────────── */
+/* ERROR MESSAGES */
 .field-error {
   display: none;
   align-items: center;
@@ -377,7 +376,7 @@ body {
 }
 .field-error.show { display: flex; }
 
-/* ─── PASSWORD STRENGTH ─────────────────────────────────────── */
+/* PASSWORD STRENGTH */
 .pw-strength { margin-top: 8px; }
 .strength-bar { display: flex; gap: 4px; margin-bottom: 6px; }
 .strength-seg {
@@ -401,7 +400,7 @@ body {
 .pw-reqs li.met { color: #2e7d32; }
 .pw-reqs li.met::before { content: '✓'; }
 
-/* ─── SUBMIT BUTTON ─────────────────────────────────────────── */
+/* SUBMIT BUTTON */
 .btn-submit {
   width: 100%;
   padding: 13px;
@@ -422,7 +421,7 @@ body {
   box-shadow: 0 8px 28px rgba(240, 98, 146, 0.55);
 }
 
-/* ─── SWITCH LINK ───────────────────────────────────────────── */
+/* SWITCH LINK */
 .switch-link {
   text-align: center;
   font-size: 0.84rem;
@@ -441,7 +440,7 @@ body {
 }
 .link-btn:hover { color: #c2185b; }
 
-/* ─── SUCCESS OVERLAY ───────────────────────────────────────── */
+/* SUCCESS OVERLAY */
 .success-overlay {
   display: none;
   flex-direction: column;
@@ -471,7 +470,7 @@ body {
 .success-overlay p { color: #1a5276; font-size: 0.9rem; line-height: 1.6; }
 .success-divider { color: #43a047; font-size: 0.85rem; margin: 10px 0; letter-spacing: 2px; }
 
-/* ─── ANIMATIONS ────────────────────────────────────────────── */
+/* ANIMATIONS */
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -493,9 +492,9 @@ body {
   to   { box-shadow: 0 0 0 20px rgba(67, 160, 71, 0); }
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────── */
+/* RESPONSIVE */
 
-/* Laptop / Desktop: side by side */
+/* For Laptop */
 @media (min-width: 900px) {
   .app {
     flex-direction: row;
@@ -506,7 +505,7 @@ body {
   .welcome-box, .getstarted-box { max-width: 480px; }
 }
 
-/* iPad: side by side but tighter */
+/* For iPad  */
 @media (min-width: 600px) and (max-width: 899px) {
   .app {
     flex-direction: row;
@@ -519,7 +518,7 @@ body {
   .getstarted-box { padding: 36px 24px; }
 }
 
-/* Phone: welcome on top, get started below */
+/* For Phone */
 @media (max-width: 599px) {
   .app {
     flex-direction: column;
